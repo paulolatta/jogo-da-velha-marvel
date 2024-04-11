@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { ApiMarvelService } from '../../services/api-marvel.service';
 import { LayoutComponent } from "../../components/layout/layout.component";
 
 @Component({
@@ -8,7 +10,20 @@ import { LayoutComponent } from "../../components/layout/layout.component";
     styleUrl: './game.component.scss',
     imports: [LayoutComponent]
 })
-export class GameComponent {
+export class GameComponent implements OnInit {
   title: string = 'Game Play'
+
+  constructor(private apiMarvel: ApiMarvelService) {}
+
+  ngOnInit(): void {
+    this.teste();
+  }
+
+  // Função de teste para a API
+  teste(): void {
+    this.apiMarvel.getHero('A-Bomb (HAS)').then((res) => {
+      console.log('res: ', res);
+    });
+  }
 
 }
