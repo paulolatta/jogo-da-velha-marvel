@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
 import MD5 from "crypto-js/md5";
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,14 +20,12 @@ export class ApiMarvelService {
 
   constructor(private http: HttpClient) {}
 
-  public async getHero(nameHero: string): Promise<any> {
+  public getHero(nameHero: string): Observable<any> {
     let timestamp = new Date().getTime();
     const hash: string = MD5(timestamp+this.privateKey+this.publicKey).toString()
 
-    const hero = await this.http
-      .get('http://gateway.marvel.com/v1/public/characters?name='+nameHero+'&ts='+timestamp+'&apikey='+this.publicKey+'&hash='+hash)
-      .toPromise();
-
-    return hero;
+    return this.http.get<any>(
+      'http://gateway.marvel.com/v1/public/characters?name='+nameHero+'&ts='+timestamp+'&apikey='+this.publicKey+'&hash='+hash
+    );
   }
 }

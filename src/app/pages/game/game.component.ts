@@ -21,9 +21,8 @@ export class GameComponent implements OnInit {
 
   // Função de teste para a API
   teste(): void {
-    this.apiMarvel.getHero('A-Bomb (HAS)').then((res) => {
+    this.apiMarvel.getHero('A-Bomb (HAS)').subscribe((res) => {
       console.log('res: ', res);
     });
   }
-
 }
