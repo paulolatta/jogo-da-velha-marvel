@@ -1,0 +1,53 @@
+section {
+  width: 40vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .area-hero {
+    display: flex;
+    flex-direction: column;
+
+    .remove-hero {
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      background-color: dimgrey;
+      position: relative;
+      top: 50px;
+      left: 92%;
+      border-radius: 50%;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .name-hero {
+      width: 100%;
+      background-color: #CD3333;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .image-hero {
+      width: 500px;
+      height: 336px;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+
+    .label {
+      color: #CD3333;
+    }
+
+    .input {
+      margin-top: 6px;
+      width: 140px;
+      border-radius: 10px;
+      border: solid 1px gray;
+    }
+  }
+}
