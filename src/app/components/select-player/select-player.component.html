@@ -1,0 +1,29 @@
+<section>
+  @if (hero) {
+    <div class="area-hero">
+      <div
+        class="remove-hero"
+        (click)="removeHero()"
+       > x </div>
+      <div class="name-hero">
+        <span> {{ hero.name }} </span>
+      </div>
+      <img
+        alt="hero"
+        class="image-hero"
+        [src]="hero.thumbnail.path+'.'+hero.thumbnail.extension"
+      >
+    </div>
+  } @else {
+    <form
+      [formGroup]="heroForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <app-simple-input
+        label="Jogador:"
+        inputId="name"
+        [control]="heroForm.get('name')"
+      ></app-simple-input>
+    </form>
+  }
+</section>
