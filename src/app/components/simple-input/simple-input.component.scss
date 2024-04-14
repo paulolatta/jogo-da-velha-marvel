@@ -3,14 +3,16 @@
   flex-direction: column;
 
   .label {
+    font-size: 22px;
     color: #CD3333;
   }
 
   .input {
     margin-top: 6px;
-    width: 140px;
+    width: 184px;
     border-radius: 10px;
     border: solid 1px gray;
+    height: 28px;
   }
 }
 

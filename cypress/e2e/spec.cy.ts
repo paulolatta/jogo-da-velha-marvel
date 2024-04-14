@@ -7,9 +7,11 @@ describe('Teste completo', () => {
 
   it('Visitar página de selecionar os jogadores, VITÓRIA DO X', () => {
     cy.visit('/gameplay')
-    cy.get('#test-jogador1').type("3-D Man{Enter}")
+    cy.get('#test-jogador1').type("3-D Man")
+    cy.get('#test-buscar').click()
     cy.wait(1000)
-    cy.get('#test-jogador2').type("A-Bomb (HAS){enter}")
+    cy.get('#test-jogador2').type("A-Bomb (HAS)")
+    cy.get('#test-buscar').click()
     cy.wait(2000);
     cy.get('#test-jogar').click()
     cy.wait(1000)
@@ -28,9 +30,11 @@ describe('Teste completo', () => {
 
   it('Visitar página de selecionar os jogadores, VITÓRIA DO O', () => {
     cy.visit('/gameplay')
-    cy.get('#test-jogador1').type("3-D Man{Enter}")
+    cy.get('#test-jogador1').type("3-D Man")
+    cy.get('#test-buscar').click()
     cy.wait(1000)
-    cy.get('#test-jogador2').type("A-Bomb (HAS){enter}")
+    cy.get('#test-jogador2').type("A-Bomb (HAS)")
+    cy.get('#test-buscar').click()
     cy.wait(2000);
     cy.get('#test-jogar').click()
     cy.wait(1000)
@@ -51,9 +55,11 @@ describe('Teste completo', () => {
 
   it('Visitar página de selecionar os jogadores, VELHA', () => {
     cy.visit('/gameplay')
-    cy.get('#test-jogador1').type("3-D Man{Enter}")
+    cy.get('#test-jogador1').type("3-D Man")
+    cy.get('#test-buscar').click()
     cy.wait(1000)
-    cy.get('#test-jogador2').type("A-Bomb (HAS){enter}")
+    cy.get('#test-jogador2').type("A-Bomb (HAS)")
+    cy.get('#test-buscar').click()
     cy.wait(2000);
     cy.get('#test-jogar').click()
     cy.wait(1000)
@@ -79,9 +85,11 @@ describe('Teste completo', () => {
 
   it('Visitar página de selecionar os jogadores, reiniciar até melhor de 3 pontos', () => {
     cy.visit('/gameplay')
-    cy.get('#test-jogador1').type("3-D Man{Enter}")
+    cy.get('#test-jogador1').type("3-D Man")
+    cy.get('#test-buscar').click()
     cy.wait(1000)
-    cy.get('#test-jogador2').type("A-Bomb (HAS){enter}")
+    cy.get('#test-jogador2').type("A-Bomb (HAS)")
+    cy.get('#test-buscar').click()
     cy.wait(2000);
     cy.get('#test-jogar').click()
     cy.wait(1000)

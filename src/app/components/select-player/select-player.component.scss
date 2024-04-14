@@ -5,6 +5,13 @@ section {
   justify-content: center;
   align-items: center;
 
+  .form-hero {
+    display: flex;
+    flex-direction: column;
+    height: 112px;
+    justify-content: space-between;
+  }
+
   .area-hero {
     display: flex;
     flex-direction: column;

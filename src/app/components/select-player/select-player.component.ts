@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 import { Hero } from '../../services/hero';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SimpleButtonComponent } from "../simple-button/simple-button.component";
 import { SimpleInputComponent } from "../simple-input/simple-input.component";
 
 @Component({
@@ -10,7 +11,7 @@ import { SimpleInputComponent } from "../simple-input/simple-input.component";
     standalone: true,
     templateUrl: './select-player.component.html',
     styleUrl: './select-player.component.scss',
-    imports: [ReactiveFormsModule, SimpleInputComponent]
+    imports: [ReactiveFormsModule, SimpleInputComponent, SimpleButtonComponent]
 })
 export class SelectPlayerComponent {
   @Input() idInput: string = '';
