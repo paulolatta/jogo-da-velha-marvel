@@ -1,0 +1,32 @@
+.game-page {
+  display: flex;
+  flex-direction: column;
+  height: -webkit-fill-available;
+
+  .scoreboard {
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    align-self: center;
+  }
+
+  .play {
+    flex: auto;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .start-game {
+      border:solid 3px
+    }
+
+    .restart-area {
+      display: flex;
+      flex-direction: column;
+      height: 200px;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+}

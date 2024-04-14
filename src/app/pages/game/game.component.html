@@ -1,39 +1,47 @@
 <app-layout
   [title]="title"
 >
-  <div class="game-page">
-    <div class="info">
-      <p>Antes de iniciar a partida, selecione os dois jogares que iram disputar o jogo da velha.</p><br>
+  @if (!playing) {
+    <div class="game-page">
+      <div class="info">
+        <p>Antes de iniciar a partida, selecione os dois jogares que iram disputar o jogo da velha.</p><br>
+      </div>
+      <div class="select-player">
+        <app-select-player
+          (searchPlayer)="searchPlayers($event)"
+          (removePlayer)="removePlayer($event)"
+          [hero]="this.players[0]"
+        ></app-select-player>
+
+        @if (this.players[0] && this.players[1]) {
+          <div class="start-play-area">
+            <img
+              class="image-vs"
+              alt="vs"
+              src="assets/images/vs.gif"
+            >
+
+            <app-simple-button
+              label="Jogar"
+              (onClick)="playGame()"
+            ></app-simple-button>
+          </div>
+        }
+
+        <app-select-player
+          (searchPlayer)="searchPlayers($event)"
+          (removePlayer)="removePlayer($event)"
+          [hero]="this.players[1]"
+        ></app-select-player>
+      </div>
     </div>
-    <div class="select-player">
-      <app-select-player
-        (searchPlayer)="searchPlayers($event)"
-        (removePlayer)="removePlayer($event)"
-        [hero]="playerOne"
-      ></app-select-player>
+  }
 
-      @if (playerOne && playerTwo) {
-        <div class="start-play-area">
-          <img
-            class="image-vs"
-            alt="vs"
-            src="assets/images/vs.gif"
-          >
-
-          <app-simple-button
-            label="Jogar"
-            (onClick)="playGame()"
-          ></app-simple-button>
-        </div>
-      }
-
-      <app-select-player
-        (searchPlayer)="searchPlayers($event)"
-        (removePlayer)="removePlayer($event)"
-        [hero]="playerTwo"
-      ></app-select-player>
-    </div>
-  </div>
+  @if (playing) {
+    <app-play
+      [players]="players"
+    ></app-play>
+  }
 </app-layout>
 
 <app-toast #mensagem></app-toast>

@@ -1,0 +1,13 @@
+
+<div class="scoreboard-area">
+  <img
+    alt="hero"
+    class="avatar-hero"
+    [src]="player?.thumbnail?.path+'.'+player?.thumbnail?.extension"
+  >
+
+  <div class="points-area">
+    <span class="name-hero"> {{ player.name }} </span>
+    <span class="points-player">Pontuação: {{ points }} </span>
+  </div>
+</div>

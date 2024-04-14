@@ -1,0 +1,8 @@
+<div class="line">
+  @for (column of columnIds; track column) {
+    <app-column
+      [column]="column"
+      (onClick)="selectedColumn($event)"
+    ></app-column>
+  }
+</div>
