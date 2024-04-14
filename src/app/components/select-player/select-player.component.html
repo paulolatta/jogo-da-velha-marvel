@@ -18,6 +18,7 @@
     </div>
   } @else {
     <form
+      class="form-hero"
       [formGroup]="heroForm"
       (ngSubmit)="onSubmit()"
     >
@@ -26,6 +27,14 @@
         [inputId]="idInput"
         [control]="heroForm.get('name')"
       ></app-simple-input>
+
+      <div>
+        <app-simple-button
+          id="test-buscar"
+          label="Buscar"
+          (selected)="onSubmit()"
+        ></app-simple-button>
+      </div>
     </form>
   }
 </section>
