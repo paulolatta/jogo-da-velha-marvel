@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 import { ToastComponent } from "../toast/toast.component";
 
@@ -9,7 +9,11 @@ import { ToastComponent } from "../toast/toast.component";
     styleUrl: './column.component.scss',
     imports: [ToastComponent]
 })
-export class ColumnComponent {
+export class ColumnComponent implements OnInit {
+  ngOnInit(): void {
+    console.log(this.column?.name);
+
+  }
   @Input() column: {name: string, src: string | null, available: boolean} | undefined;
   @Output() selected = new EventEmitter<string>();
   @ViewChild('mensagem') mensagem!: ToastComponent;

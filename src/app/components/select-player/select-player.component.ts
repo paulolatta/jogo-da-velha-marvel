@@ -13,6 +13,7 @@ import { SimpleInputComponent } from "../simple-input/simple-input.component";
     imports: [ReactiveFormsModule, SimpleInputComponent]
 })
 export class SelectPlayerComponent {
+  @Input() idInput: string = '';
   @Input() hero: Hero | undefined | null;
   @Output() searchPlayer = new EventEmitter<string>();
   @Output() removePlayer = new EventEmitter<string>();

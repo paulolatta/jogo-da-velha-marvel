@@ -8,6 +8,7 @@
       </div>
       <div class="select-player">
         <app-select-player
+          idInput="test-jogador1"
           (searchPlayer)="searchPlayers($event)"
           (removePlayer)="removePlayer($event)"
           [hero]="this.players[0]"
@@ -22,6 +23,7 @@
             >
 
             <app-simple-button
+              id="test-jogar"
               label="Jogar"
               (selected)="playGame()"
             ></app-simple-button>
@@ -29,6 +31,7 @@
         }
 
         <app-select-player
+          idInput="test-jogador2"
           (searchPlayer)="searchPlayers($event)"
           (removePlayer)="removePlayer($event)"
           [hero]="this.players[1]"
