@@ -31,4 +31,20 @@
       margin-bottom: 16px;
     }
   }
+
+  .somente-mobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .game-page {
+    .info {
+      width: auto;
+    }
+
+    .select-player {
+      flex-direction: column;
+    }
+  }
 }

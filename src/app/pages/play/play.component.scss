@@ -30,3 +30,13 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .game-page {
+    .scoreboard {
+      align-self: normal;
+      width: auto;
+    }
+  }
+}
+

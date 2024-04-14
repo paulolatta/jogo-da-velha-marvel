@@ -7,3 +7,10 @@
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (max-width: 480px) {
+  .column {
+    width: 94px;
+    height: 91px;
+  }
+}
