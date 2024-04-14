@@ -13,3 +13,12 @@
     border: solid 1px gray;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .form .input {
+    margin-top: 8px;
+    width: 195px;
+    height: 32px;
+    margin-bottom: 35px;
+  }
+}
