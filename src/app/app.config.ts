@@ -2,7 +2,6 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
 
 import { ApplicationConfig } from '@angular/core';
 import { importProvidersFrom } from '@angular/core';
-import { provideClientHydration, } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 

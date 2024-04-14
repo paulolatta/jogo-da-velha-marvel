@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { Component, Input } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-simple-input',
@@ -11,5 +13,5 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class SimpleInputComponent {
   @Input() label: string = '';
   @Input() inputId: string = '';
-  @Input() control: any;
+  @Input() control: any
 }

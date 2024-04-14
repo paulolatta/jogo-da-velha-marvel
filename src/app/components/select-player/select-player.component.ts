@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { Hero } from '../../services/hero';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SimpleInputComponent } from "../simple-input/simple-input.component";
 
 @Component({
@@ -14,15 +14,15 @@ import { SimpleInputComponent } from "../simple-input/simple-input.component";
 })
 export class SelectPlayerComponent {
   @Input() hero: Hero | undefined | null;
-  @Output() searchPlayer = new EventEmitter<any>();
-  @Output() removePlayer = new EventEmitter<any>();
+  @Output() searchPlayer = new EventEmitter<string>();
+  @Output() removePlayer = new EventEmitter<string>();
 
   heroForm = new FormGroup({
     name: new FormControl('')
   });
 
   onSubmit(): void {
-    this.searchPlayer.emit(this.heroForm.value.name);
+    this.searchPlayer.emit(this.heroForm.value.name?.toString());
   }
 
   removeHero(): void {

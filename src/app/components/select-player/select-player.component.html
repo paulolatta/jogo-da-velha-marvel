@@ -4,6 +4,8 @@
       <div
         class="remove-hero"
         (click)="removeHero()"
+        (keydown)="removeHero()"
+        tabindex="0"
        > x </div>
       <div class="name-hero">
         <span> {{ hero.name }} </span>

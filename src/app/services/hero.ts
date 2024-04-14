@@ -6,3 +6,9 @@ export interface Hero {
     path: string
   }
 }
+
+export interface HeroCompleto {
+  data: {
+    results: Hero[]
+  }
+}

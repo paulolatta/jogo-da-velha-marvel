@@ -9,9 +9,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class SimpleButtonComponent {
   @Input() label: string = '';
-  @Output() onClick = new EventEmitter<any>();
+  @Output() selected = new EventEmitter<object>();
 
-  internalClick(event: any): void {
-    this.onClick.emit(event)
+  internalClick(event: object): void {
+    this.selected.emit(event)
   }
 }

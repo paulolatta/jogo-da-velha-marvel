@@ -1,3 +1,8 @@
-<a class="button" (click)="internalClick($event)">
+<a
+  class="button"
+  (click)="internalClick($event)"
+  (keydown)="internalClick($event)"
+  tabindex="0"
+>
   {{ label }}
 </a>
