@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { Hero } from '../../services/hero';
 import { LineComponent } from "../../components/line/line.component";
@@ -53,7 +53,7 @@ export class PlayComponent implements OnInit {
 
   startValues(): void {
     if (this.players) {
-      let randomNum = Math.random();
+      const randomNum = Math.random();
       if (randomNum < 0.5 ) {
         this.playerOne = this.players[0]?.name;
         this.playerTwo = this.players[1]?.name
@@ -101,10 +101,9 @@ export class PlayComponent implements OnInit {
       this.checkColumns(this.columnsLine[this.COL_1].value, this.columnsLine[this.COL_5].value, this.columnsLine[this.COL_9].value) ||
       this.checkColumns(this.columnsLine[this.COL_3].value, this.columnsLine[this.COL_5].value, this.columnsLine[this.COL_7].value)
     ) {
-      const indexPlayerWinner: any = this.players?.findIndex(hero => hero?.name === this.winner);
-      this.pointsPlayers[indexPlayerWinner] = this.pointsPlayers[indexPlayerWinner] + 1;
+      const indexPlayerWinner: number | undefined = this.players?.findIndex(hero => hero?.name === this.winner);
+      this.pointsPlayers[indexPlayerWinner!] = this.pointsPlayers[indexPlayerWinner!] + 1;
       this.gameEnded = true;
-
     } else if (this.isEmpate()) {
       this.velha = true;
       this.winner = 'DEU VELHA!!';

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-toast',
@@ -13,7 +13,7 @@ export class ToastComponent {
   public showToast(text: string): void {
     this.text = text;
 
-    let x = document.getElementById("snackbar");
+    const x = document.getElementById("snackbar");
     if (x) {
       x.className = "show";
 

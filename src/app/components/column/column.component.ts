@@ -11,12 +11,12 @@ import { ToastComponent } from "../toast/toast.component";
 })
 export class ColumnComponent {
   @Input() column: {name: string, src: string | null, available: boolean} | undefined;
-  @Output() onClick = new EventEmitter<string>();
+  @Output() selected = new EventEmitter<string>();
   @ViewChild('mensagem') mensagem!: ToastComponent;
 
   onClicked(): void {
     if (this.column && this.column.available === true) {
-      this.onClick.emit(this.column.name)
+      this.selected.emit(this.column.name)
     } else {
       this.mensagem.showToast('Este campo não está disponível, por favor selecione outro campo.');
     }

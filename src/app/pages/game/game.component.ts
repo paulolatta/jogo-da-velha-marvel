@@ -18,7 +18,7 @@ import { ToastComponent } from '../../components/toast/toast.component';
 export class GameComponent {
   title: string = 'Game Play'
   playing: boolean = false;
-  players: Array<Hero | null> = [];
+  players: (Hero | null)[] = [];
 
   @ViewChild('mensagem') mensagem!: ToastComponent;
 
@@ -27,23 +27,22 @@ export class GameComponent {
   async searchPlayers(heroName: string): Promise<void> {
     const player = await this.searchPlayer(heroName);
 
-    if (!this.players[0]) {
+    if (player && !this.players[0]) {
       this.players[0] = player;
     } else {
       this.players[1] = player
     }
   }
 
-  searchPlayer(heroName: string): any {
-    return this.apiMarvel.getHero(heroName).then((res: {data: {results: Array<any>}}) => {
-      if (res.data.results[0]) {
-        return res.data.results[0];
-      } else {
-        this.mensagem.showToast('Sua busca não retornou resultados, procure por outro herói.');
-      }
-    }).catch((res: any) => {
+  async searchPlayer(heroName: string): Promise<Hero | null> {
+    const heroCompleto = await this.apiMarvel.getHero(heroName);
+
+    if (heroCompleto && heroCompleto.data.results[0]) {
+      return heroCompleto.data.results[0];
+    } else {
       this.mensagem.showToast('Sua busca não retornou resultados, procure por outro herói.');
-    });
+      return null;
+    }
   }
 
   removePlayer(event: string): void {

@@ -13,15 +13,15 @@
       <span>Vez do jogador: {{ currentPlayer }}</span>
       <div class="start-game">
         <app-line
-          (onClick)="selectedColumn($event)"
+          (selected)="selectedColumn($event)"
           [columnIds]="columnsLine.slice(0, 3)"
         ></app-line>
         <app-line
-          (onClick)="selectedColumn($event)"
+          (selected)="selectedColumn($event)"
           [columnIds]="columnsLine.slice(3, 6)"
         ></app-line>
         <app-line
-          (onClick)="selectedColumn($event)"
+          (selected)="selectedColumn($event)"
           [columnIds]="columnsLine.slice(6)"
         ></app-line>
       </div>
@@ -36,7 +36,7 @@
         }
         <app-simple-button
           label="Reiniciar"
-          (onClick)="restart()"
+          (selected)="restart()"
         ></app-simple-button>
       </div>
     </div>

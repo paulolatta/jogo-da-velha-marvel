@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Hero } from '../../services/hero';
 
@@ -10,6 +10,6 @@ import { Hero } from '../../services/hero';
   styleUrl: './scoreboard.component.scss'
 })
 export class ScoreboardComponent {
-  @Input() player: any | undefined | null;
+  @Input() player: Hero | null | undefined;
   @Input() points: number = 0;
 }

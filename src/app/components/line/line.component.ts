@@ -11,9 +11,9 @@ import { ColumnComponent } from "../column/column.component";
 })
 export class LineComponent {
   @Input() columnIds: Array<{name: string, src: string | null, available: boolean}> = [];
-  @Output() onClick = new EventEmitter<string>();
+  @Output() selected = new EventEmitter<string>();
 
   selectedColumn(event: string): void {
-    this.onClick.emit(event);
+    this.selected.emit(event);
   }
 }

@@ -3,7 +3,9 @@
     class="column"
     [id]="column.name"
     (click)="onClicked()"
-    >
+    (keydown)="onClicked()"
+    tabindex="0"
+  >
     @if (column.src) {
       <img [src]="column.src" alt="valueColumn">
     }
