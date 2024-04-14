@@ -1,0 +1,15 @@
+.scoreboard-area {
+  display: flex;
+
+  .avatar-hero {
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .points-area {
+    display: flex;
+    flex-direction: column;
+    color: #CD3333;
+  }
+}

@@ -1,0 +1,13 @@
+@if (column) {
+  <div
+    class="column"
+    [id]="column.name"
+    (click)="onClicked()"
+    >
+    @if (column.src) {
+      <img [src]="column.src" alt="valueColumn">
+    }
+  </div>
+}
+
+<app-toast #mensagem></app-toast>

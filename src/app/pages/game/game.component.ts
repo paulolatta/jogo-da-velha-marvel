@@ -3,6 +3,7 @@ import { Component, ViewChild } from '@angular/core';
 import { ApiMarvelService } from '../../services/api-marvel.service';
 import { Hero } from '../../services/hero';
 import { LayoutComponent } from "../../components/layout/layout.component";
+import { PlayComponent } from "../play/play.component";
 import { SelectPlayerComponent } from "../../components/select-player/select-player.component";
 import { SimpleButtonComponent } from "../../components/simple-button/simple-button.component";
 import { ToastComponent } from '../../components/toast/toast.component';
@@ -12,22 +13,24 @@ import { ToastComponent } from '../../components/toast/toast.component';
     standalone: true,
     templateUrl: './game.component.html',
     styleUrl: './game.component.scss',
-    imports: [LayoutComponent, SelectPlayerComponent, SimpleButtonComponent, ToastComponent]
+    imports: [LayoutComponent, SelectPlayerComponent, SimpleButtonComponent, ToastComponent, PlayComponent]
 })
 export class GameComponent {
   title: string = 'Game Play'
-  playerOne: Hero | undefined | null;
-  playerTwo: Hero | undefined | null;
+  playing: boolean = false;
+  players: Array<Hero | null> = [];
 
   @ViewChild('mensagem') mensagem!: ToastComponent;
 
   constructor(private apiMarvel: ApiMarvelService) {}
 
   async searchPlayers(heroName: string): Promise<void> {
-    if (!this.playerOne) {
-      this.playerOne = await this.searchPlayer(heroName);
+    const player = await this.searchPlayer(heroName);
+
+    if (!this.players[0]) {
+      this.players[0] = player;
     } else {
-      this.playerTwo = await this.searchPlayer(heroName);
+      this.players[1] = player
     }
   }
 
@@ -44,15 +47,15 @@ export class GameComponent {
   }
 
   removePlayer(event: string): void {
-    if (this.playerOne?.name === event) {
-      this.playerOne = null
-    } else {
-      this.playerTwo = null;
-    }
+    this.players.forEach((hero: Hero | null, index: number) => {
+      if (hero?.name === event) {
+        this.players[index] = null;
+      }
+    });
   }
 
   playGame(): void {
-    let randomNum = Math.random();
-    let chosenPlayer = randomNum < 0.5 ? this.playerOne?.name : this.playerTwo?.name;
+    this.title = 'Jogando'
+    this.playing = true;
   }
 }

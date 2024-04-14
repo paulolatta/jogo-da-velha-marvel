@@ -1,0 +1,46 @@
+<div class="game-page">
+  <div class="scoreboard">
+    @for (player of players; track player; let idx = $index) {
+      <app-scoreboard
+        [player]="player"
+        [points]="pointsPlayers[idx]"
+      ></app-scoreboard>
+    }
+  </div>
+
+  @if (!gameEnded) {
+    <div class="play">
+      <span>Vez do jogador: {{ currentPlayer }}</span>
+      <div class="start-game">
+        <app-line
+          (onClick)="selectedColumn($event)"
+          [columnIds]="columnsLine.slice(0, 3)"
+        ></app-line>
+        <app-line
+          (onClick)="selectedColumn($event)"
+          [columnIds]="columnsLine.slice(3, 6)"
+        ></app-line>
+        <app-line
+          (onClick)="selectedColumn($event)"
+          [columnIds]="columnsLine.slice(6)"
+        ></app-line>
+      </div>
+    </div>
+  } @else {
+    <div class="play">
+      <div class="restart-area">
+        @if (!velha) {
+          <span>Vitória do jogador: {{ winner }} </span>
+        } @else {
+          <span>Jogo empatado: {{ winner }} </span>
+        }
+        <app-simple-button
+          label="Reiniciar"
+          (onClick)="restart()"
+        ></app-simple-button>
+      </div>
+    </div>
+  }
+
+
+</div>
