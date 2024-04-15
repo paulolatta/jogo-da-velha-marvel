@@ -44,4 +44,4 @@ Executar `ng test` para executar o teste unitário via [Karma](https://karma-run
 
 ## Teste end-to-end tests
 
-Executar `ng e2e` para executar o teste end-to-end através de uma plataforma de sua escolha. Para usar este comando, você precisa primeiro adicionar um pacote que implemente recursos de teste ponta a ponta.
+Executar `ng e2e` para executar o teste end-to-end via Cypress.
